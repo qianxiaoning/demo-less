@@ -1,0 +1,20 @@
+@btn-bgColor:blue; //定义变量，后面要加分号（暂时不知如何支持默认值）
+.page01{ //嵌套语法
+    .nav{
+        a{
+            color:@btn-bgColor;
+            &:hover{color:#fff;} //&代表父标签，定义hover时
+        }        
+    }
+    .container{
+        .blueBtn,.redBtn{font-size:16px;} //群组选择器
+    }
+    .footer{
+        // background{    //暂时不知如何支持属性嵌套            
+        //     color:#fff;
+        //     repeat:no-repeat
+        // }
+        background-color: #fff;
+        background-repeat: no-repeat;    
+    }
+}

@@ -1,19 +1,57 @@
-### 快速入门
+### 快速上手
+- 在vue中使用
 ```
-增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展
+1.安装
+npm install less less-loader -S
+2.配置webpack
+webpack.base.conf.js中的
+module:{
+    rules:[
+        {
+            test:/\.less$/, //匹配后缀名
+            loaders:"style-loader!css-loader!less-loader" //指定loader
+        }
+    ]
+}
+3.npm run dev
+4.<style scoped lang="less">
+5.常用语法
+@btn-bgColor:blue; //定义变量，后面要加分号（暂时不知如何支持默认值）
+.page01{ //嵌套语法
+    .nav{
+        a{
+            color:@btn-bgColor;
+            &:hover{color:#fff;} //&代表父标签，定义hover时
+        }        
+    }
+    .container{
+        .blueBtn,.redBtn{font-size:16px;} //群组选择器
+    }
+    .footer{
+        // background{    //暂时不知如何支持属性嵌套            
+        //     color:#fff;
+        //     repeat:no-repeat
+        // }
+        background-color: #fff;
+        background-repeat: no-repeat;    
+    }
+}
 ```
-- 安装
+- 单独使用
 ```
-npm install -g less
-```
-- 命令行用法
-```
+npm i -g less
 $ lessc styles.less styles.css
-压缩 --clean-css
-$ lessc --clean-css styles.less styles.min.css
+压缩编译
+npm install -g less-plugin-clean-css
+lessc --clean-css styles.less styles.min.css
+单独使用无法批量编译
+无法实时编译
 ```
-
-### 概述
+---
+### 语法
+```
+感觉和sass相比，less多了一些函数方法，和属性计算。
+```
 - 变量（variables） @
 ```
 @width: 10px;
@@ -179,16 +217,10 @@ $ lessc --clean-css styles.less styles.min.css
 @import "library"; // library.less
 @import "typo.css";
 ```
-### less.js用法
 - 安装
 ```
 npm i less -D
 ```
-### less.js用法
-- less所有的内置函数
 ```
-https://less.bootcss.com/functions/
+~""//避免编译
 ```
----
-看到
-https://less.bootcss.com/features/

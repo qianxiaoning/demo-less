@@ -1,0 +1,14 @@
+.page01 .nav a {
+  color: blue;
+}
+.page01 .nav a:hover {
+  color: #fff;
+}
+.page01 .container .blueBtn,
+.page01 .container .redBtn {
+  font-size: 16px;
+}
+.page01 .footer {
+  background-color: #fff;
+  background-repeat: no-repeat;
+}
